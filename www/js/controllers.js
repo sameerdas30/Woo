@@ -59,7 +59,8 @@ app.controller('CategoryCtrl', function($scope, $stateParams, wooshopService, $s
 })
 
 app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopService, ngCart, SETTINGS) {
-console.log($rootScope);
+
+//$log.debug();
     wooshopService.getIndex().then(function(data){
         var currency = data.currency_format;
         var shipping_charge =  SETTINGS.shipping_charge;
@@ -69,26 +70,47 @@ console.log($rootScope);
         ngCart.setTaxRate(tax_rate);
         ngCart.setShipping(shipping_charge); 
         ngCart.setCurrency(currency);
-		$scope.Pay = function(){
-			alert($scope);
-
-var value1 = "_s-xclick";
-var value2 = "sameer_bizus@webzin.in";
-
-
-var formAttributes = '<html><head></head><body><form id="loginForm" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">' +
-'<input type="hidden" name="cmd" value="' + value1 + '">' +
-'<input type="hidden" name="hosted_button_id" value="' + value2 + '">' +
-'</form> <script type="text/javascript">document.getElementById("openpaypal").submit();</script></body></html>';
-var formUrl = 'data:text/html;base64,' + btoa(formAttributes);
-
-var browserOpen = window.cordova.InAppBrowser.open(
-    formUrl ,
-    "_blank",
-    "hidden=no,location=no,clearsessioncache=yes,clearcache=yes"
-);
-};
+		$scope.pay = function(){
+			//alert('inside pay');
+			var value1 = "_s-xclick";
+			var value2 = "sameer_bizus@webzin.in";
+			
+			//alert('sam');
+			var formAttributes = '<html><head></head><body><form id="openpaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">' +
+			'<input type="hidden" name="cmd" value="' + value1 + '">' +
+			'<input type="hidden" name="hosted_button_id" value="' + value2 + '">' +
+			'</form> <script type="text/javascript">document.getElementById("openpaypal").submit();</script></body></html>';
+			var formUrl = 'data:text/html;base64,' + btoa(formAttributes);
+			
+			var browserOpen = window.cordova.InAppBrowser.open(
+				formUrl ,
+				"_blank",
+				"hidden=no,location=no,clearsessioncache=yes,clearcache=yes"
+			);
+			};
+		
     });
+	app.controller ('CheckoutCtrl', function($rootScope, $scope, $stateParams, wooshopService, ngCart, SETTINGS) {
+		alert('das');
+		$scope.Pay = function(){
+			var value1 = "_s-xclick";
+			var value2 = "sameer_bizus@webzin.in";
+			
+			alert('sam');
+			var formAttributes = '<html><head></head><body><form id="openpaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">' +
+			'<input type="hidden" name="cmd" value="' + value1 + '">' +
+			'<input type="hidden" name="hosted_button_id" value="' + value2 + '">' +
+			'</form> <script type="text/javascript">document.getElementById("openpaypal").submit();</script></body></html>';
+			var formUrl = 'data:text/html;base64,' + btoa(formAttributes);
+			
+			var browserOpen = window.cordova.InAppBrowser.open(
+				formUrl ,
+				"_blank",
+				"hidden=no,location=no,clearsessioncache=yes,clearcache=yes"
+			);
+			};
+		console.log($scope.Pay);
+	})
 });
 
  
