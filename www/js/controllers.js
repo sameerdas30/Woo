@@ -86,7 +86,7 @@ app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopSe
 			'<input type="hidden" name="item_name" value="' + value4 + '">' +
 			'<input type="hidden" name="item_number" value="' + value5 + '">' +
 			'<input type="hidden" name="amount" value="' + ngCart.getSubTotal() + '">' +
-			'<input type="hidden" name="currency_code" value="' + ngCart.getCurrency() + '">' +
+			'<input type="hidden" name="currency_code" value="USD">' +
 			'<input type="hidden" name="button_subtype" value="services">' +
 			'<input type="hidden" name="no_note" value="0">' +
 			'<input type="hidden" name="tax_rate" value="'+ngCart.getTaxRate()+'">' +
