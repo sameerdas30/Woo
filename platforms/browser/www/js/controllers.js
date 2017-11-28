@@ -59,7 +59,7 @@ app.controller('CategoryCtrl', function($scope, $stateParams, wooshopService, $s
 })
 
 app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopService, ngCart, SETTINGS) {
-
+console.log($rootScope);
     wooshopService.getIndex().then(function(data){
         var currency = data.currency_format;
         var shipping_charge =  SETTINGS.shipping_charge;
@@ -70,7 +70,7 @@ app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopSe
         ngCart.setShipping(shipping_charge); 
         ngCart.setCurrency(currency);
 		$scope.Pay = function(){
-			alert('sam');
+			alert($scope);
 
 var value1 = "_s-xclick";
 var value2 = "sameer_bizus@webzin.in";

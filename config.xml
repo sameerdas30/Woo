@@ -1,25 +1,37 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>woo</name>
+<widget id="com.phonegap.woomobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>WooMobile</name>
     <description>
-        A blank PhoneGap app.
+        A woocommerce Mobile app.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="sameer@webzin.in" href="http://samirdas.in">
+        Samir Das
     </author>
     <content src="index.html" />
+    <!--<plugin name="phonegap-plugin-push" source="npm">
+        <variable name="SENDER_ID" value="XXXXXXX" />
+    </plugin>-->
+    <plugin name="cordova-plugin-console" source="npm" />	
+    <plugin name="cordova-plugin-statusbar" source="npm" />
+    <plugin name="cordova-plugin-whitelist" source="npm" />
+	<plugin name="cordova-plugin-dialogs" source="npm" />
+	<plugin name="cordova-plugin-inappbrowser" source="npm" />
 	<preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#ee6e73" />
     <preference name="StatusBarStyle" value="blacktranslucent" />
-    <plugin name="cordova-plugin-statusbar" source="npm" />
-    <plugin name="phonegap-plugin-push" source="npm">
-        <variable name="SENDER_ID" value="XXXXXXX" />
-    </plugin>
-    <plugin name="cordova-plugin-console" source="npm" />
-	<plugin name="cordova-plugin-inappbrowser" source="npm" />
-    <plugin name="cordova-plugin-dialogs" source="npm" />
-    <plugin name="cordova-plugin-whitelist" source="npm" />
+    
     <access origin="*" />
+	<allow-intent href="http://*/*" />
+<allow-intent href="https://*/*" />
+<allow-intent href="tel:*" />
+<allow-intent href="sms:*" />
+<allow-intent href="mailto:*" />
+<allow-intent href="geo:*" />
+<platform name="android">
+    <allow-intent href="market:*" />
+</platform>
+<allow-navigation href="http://*/*" />
+<allow-intent href="https://*/*" />
 </widget>

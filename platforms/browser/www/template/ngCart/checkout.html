@@ -6,9 +6,9 @@
 
 
 	<div ng-if="service=='paypal'">
-<div ng-click = "Pay()">
+<div>
 
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<input ng-click ="Pay()" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 
 		<form id="openpaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" ng-show="ngCart.getTotalItems()">
 			<input type="hidden" name="cmd" value="_xclick">
