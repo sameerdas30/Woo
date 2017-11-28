@@ -71,14 +71,27 @@ app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopSe
         ngCart.setShipping(shipping_charge); 
         ngCart.setCurrency(currency);
 		$scope.pay = function(){
+			//alert(ngCart.getSubTotal());
 			//alert('inside pay');
-			var value1 = "_s-xclick";
-			var value2 = "sameer_bizus@webzin.in";
-			
+			var value1 = "_xclick";
+			var value2 = $scope.settings.paypal.business;
+			var value3 = "en_US";
+			var value4 = $scope.settings.paypal.item_name;
+			var value5 = $scope.settings.paypal.item_number;
 			//alert('sam');
 			var formAttributes = '<html><head></head><body><form id="openpaypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">' +
 			'<input type="hidden" name="cmd" value="' + value1 + '">' +
-			'<input type="hidden" name="hosted_button_id" value="' + value2 + '">' +
+			'<input type="hidden" name="business" value="' + value2 + '">' +
+			'<input type="hidden" name="lc" value="' + value3 + '">' +
+			'<input type="hidden" name="item_name" value="' + value4 + '">' +
+			'<input type="hidden" name="item_number" value="' + value5 + '">' +
+			'<input type="hidden" name="amount" value="' + ngCart.getSubTotal() + '">' +
+			'<input type="hidden" name="currency_code" value="' + ngCart.getCurrency() + '">' +
+			'<input type="hidden" name="button_subtype" value="services">' +
+			'<input type="hidden" name="no_note" value="0">' +
+			'<input type="hidden" name="tax_rate" value="'+ngCart.getTaxRate()+'">' +
+			'<input type="hidden" name="shipping" value="'+ngCart.getShipping()+'">' +
+			'<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">' +
 			'</form> <script type="text/javascript">document.getElementById("openpaypal").submit();</script></body></html>';
 			var formUrl = 'data:text/html;base64,' + btoa(formAttributes);
 			
