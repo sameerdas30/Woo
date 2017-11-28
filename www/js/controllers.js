@@ -70,6 +70,7 @@ app.controller ('CartCtrl', function($rootScope, $scope, $stateParams, wooshopSe
         ngCart.setShipping(shipping_charge); 
         ngCart.setCurrency(currency);
 		$scope.Pay = function(){
+			alert('sam');
 
 var value1 = "_s-xclick";
 var value2 = "sameer_bizus@webzin.in";
