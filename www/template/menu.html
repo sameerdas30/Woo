@@ -18,14 +18,11 @@
   <ion-side-menu side="left">
     <div class="sidemenu-header">
 		<div class="profile-block">
-			<div class="" ng-if="profile.picture">
-                <img src="{{profile.picture}}"/>
-            </div>
-            <div class="" ng-if="!profile.picture">
-                <img src="img/profile_img.png"/>
+			<div class="">
+                <img src="http://www.gravatar.com/avatar/{{ email | gravatar }}"/>
             </div>
 			<h3>John Done</h3>
-            <p>john@gmail.com</p>
+            <p pin="mailside" id="mailside" ng-model="email">john@gmail.com</p>{{ message }}
 		</div>
 	</div>
     <ion-content class="cat-sidebar">

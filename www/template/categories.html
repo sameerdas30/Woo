@@ -4,7 +4,7 @@
       <ion-item href="#/app/categories/{{category.slug}}">
 			<div class="cont">
 				<img ng-src="{{category.image}}" width="auto" height="230px" style="min-width:100%;" />
-				<h2 class="item-title"><span>{{category.name}}</span></h2>
+				<h2 class="item-title"><span>{{category.name | ampersand}}</span></h2>
 				<div class="item-hero-overlay"></div>
 			</div>
       </ion-item>

@@ -1,13 +1,19 @@
 
 var app = angular.module('wooshop.controllers', ['wooshop.services'])
 
-app.controller('AppCtrl', function($scope, $ionicLoading, $ionicModal, $timeout, $state) {
+app.controller('AppCtrl', function($scope, $ionicLoading, $ionicModal, $timeout, $state, md5) {
     $scope.show = function() {
 		$ionicLoading.show({
 			template: '<ion-spinner class="base-spinner" icon="android"></ion-spinner>'
 		});
 	};
-	
+	var myEl = angular.element( document.querySelector( '#mailside' ) );
+	console.log(myEl.innerHTML);
+	//alert($scope.id);
+	$scope.$watch('mailside' ,function() {
+		
+        $scope.message = 'Your email Hash is: ' + md5.createHash($scope.mailside || '');
+      });
 	$scope.hide = function(){
 		$ionicLoading.hide();
 	};
@@ -36,7 +42,11 @@ app.controller('ProductsCtrl', function($rootScope, $scope, wooshopService) {
     })
 
 })
-
+app.filter('ampersand', function(){
+    return function(input){
+        return input ? input.replace(/&amp;/, '&') : '';
+    }
+});
 app.controller('ProductCtrl', function($rootScope, $scope, $stateParams, wooshopService, ngCart) {
     $scope.show();
     wooshopService.getItem($stateParams.productId).then(function (data){

@@ -1,4 +1,4 @@
-angular.module('wooshop', ['ionic', 'wooshop.controllers', 'wooshop.services', 'ngCart'])
+angular.module('wooshop', ['ionic', 'wooshop.controllers', 'wooshop.services', 'ngCart', 'angular-md5'])
 
 .run(function($rootScope, $ionicPlatform, $ionicLoading, $ionicPopup, $ionicHistory) {
   $ionicPlatform.ready(function() {
